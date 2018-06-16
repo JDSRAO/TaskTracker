@@ -1,19 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import * as mdModules from './index';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { 
+    MatButtonModule
+  , MatCheckboxModule
+  , MatInputModule
+  , MatIconModule
+  , MatFormFieldModule
+  , MatRippleModule
+  , MatCardModule  
+  , MatSelectModule
+  , MatProgressBarModule
+} from '@angular/material';
+
+
+const modules = [
+  MatButtonModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatRippleModule,
+  MatCardModule,
+  MatSelectModule,
+  MatProgressBarModule
+];
 
 @NgModule({
   imports: [
     CommonModule,
-  ],
-  declarations: [],
-  exports : [
     BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule    
+    ...modules
+  ],
+  declarations: [
+  ],
+  exports : [
+    ...modules    
   ]
 })
 export class MaterialDesignModule { }
