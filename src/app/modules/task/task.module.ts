@@ -5,6 +5,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 
 import { TaskManagementIndexComponent } from '../Task/task-management-index/task-management-index.component';
+import { TaskStatsComponent } from '../Task/task-stats/task-stats.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,10 @@ import { TaskManagementIndexComponent } from '../Task/task-management-index/task
     HttpClientModule,
     MaterialDesignModule
   ],
-  declarations: [TaskManagementIndexComponent]
+  declarations: [TaskManagementIndexComponent, TaskStatsComponent],
+  exports :[
+    TaskManagementIndexComponent,
+    TaskStatsComponent
+  ]
 })
 export class TaskModule { }
