@@ -4,10 +4,10 @@
       <div class="col-sm-12">
         <mat-chip-list class="mat-chip-list">
           <mat-chip selected="true">
-            0 Closed
+            {{closedTasksCount}} Closed
           </mat-chip> /
           <mat-chip selected="true" color="warn">
-            1 total
+            {{tasks.length}} Total
           </mat-chip>
         </mat-chip-list>
       </div>

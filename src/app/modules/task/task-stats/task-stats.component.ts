@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Task } from '../_models/task';
 
 @Component({
   selector: 'app-task-stats',
@@ -7,8 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TaskStatsComponent implements OnInit {
 
-  // @Input()
-  // statsObj : any ;
+  @Input()
+  tasks : Task[];
+  closedTasksCount : number = 0;
   constructor() { }
 
   ngOnInit() {

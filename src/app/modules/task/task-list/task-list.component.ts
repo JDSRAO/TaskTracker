@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  } from "@angular/router";
+import { Task } from '../_models/task';
 
 @Component({
   selector: 'app-task-list',
@@ -8,16 +9,21 @@ import { Router  } from "@angular/router";
 })
 export class TaskListComponent implements OnInit {
 
-  constructor(
+  tasks : Task[] = [];
+  constructor 
+  (
     private router : Router
   ) { }
 
-  ngOnInit() {
-  }
-
-  GoToAddPage()
+  goToAddPage()
   {
     this.router.navigate(['task/add']);
+  }
+
+  Get
+
+  ngOnInit() {
+
   }
 
 }

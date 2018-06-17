@@ -4,6 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { MaterialDesignModule } from '../material-design/material-design.module';
+import { UtilsModule } from '../utils/utils.module';
 
 import { TaskManagementIndexComponent } from '../Task/task-management-index/task-management-index.component';
 import { TaskStatsComponent } from '../Task/task-stats/task-stats.component';
@@ -21,7 +22,8 @@ const components = [
     CommonModule,
     RouterModule,
     HttpClientModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    UtilsModule
   ],
   declarations: [...components],
   exports :[
