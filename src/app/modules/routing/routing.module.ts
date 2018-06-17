@@ -5,10 +5,20 @@ import { MaterialDesignModule } from '../material-design/material-design.module'
 
 import { TaskModule } from '../task/task.module';
 import { TaskManagementIndexComponent } from "../task/task-management-index/task-management-index.component";
+import { TaskAddComponent } from "../task/task-add/task-add.component";
+import { TaskListComponent } from '../Task/task-list/task-list.component';
 
+
+
+const taskRoutes : Routes = 
+[
+  { path : '', component: TaskListComponent}
+  , { path : 'add', component: TaskAddComponent}
+]
 const routes : Routes = 
 [
-  { path : '', component: TaskManagementIndexComponent}
+  { path : '', redirectTo: 'task',  pathMatch: 'full'}
+  , { path : 'task', component: TaskManagementIndexComponent, children : [...taskRoutes]}
 ]
 
 @NgModule({
@@ -20,9 +30,8 @@ const routes : Routes =
   ],
   declarations: [
     TaskManagementIndexComponent
+    , TaskAddComponent
   ],
-  exports :[
-    TaskManagementIndexComponent
-  ]
+  exports :[  ]
 })
 export class RoutingModule { }

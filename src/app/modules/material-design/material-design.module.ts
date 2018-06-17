@@ -12,6 +12,7 @@ import {
   , MatSelectModule
   , MatProgressBarModule
   , MatChipsModule
+  , MatTableModule
 } from '@angular/material';
 
 
@@ -25,7 +26,8 @@ const modules = [
   MatCardModule,
   MatSelectModule,
   MatProgressBarModule,
-  MatChipsModule
+  MatChipsModule,
+  MatTableModule
 ];
 
 @NgModule({
