@@ -17,8 +17,6 @@ const services = [
   providers :[
     ...services
   ],
-  exports: [
-    ...services
-  ]
+  exports: [  ]
 })
 export class UtilsModule { }
