@@ -5,6 +5,7 @@ export class TaskViewModel
     public description : string;
     public createdAt : Date;
     public status : string[];
+    public targetDate : Date;
 
     constructor() 
     {

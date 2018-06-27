@@ -14,6 +14,7 @@ export class TaskAddComponent implements OnInit {
 
   public addTaskForm : FormGroup;
   public taskStatuses : string[];
+  targetDateConfig : any = { min : new Date()};
 
   constructor
   (
@@ -37,14 +38,9 @@ export class TaskAddComponent implements OnInit {
     ({
       title : [taskViewmodel.title, Validators.required],
       description : [taskViewmodel.description, Validators.required],
-      status : [taskViewmodel.status, Validators.required]
-    });  
-    // let form = this.fb.group
-    // ({
-    //   title : [taskViewmodel.title],
-    //   description : [taskViewmodel.description],
-    //   status : [taskViewmodel.status]
-    // });  
+      status : [taskViewmodel.status, Validators.required],
+      targetDate : [taskViewmodel.targetDate, Validators.required],
+    });   
     return form;
   }
 
