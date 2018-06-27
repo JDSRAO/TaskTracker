@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  } from "@angular/router";
-import { Task } from '../_models/task';
+import { TaskViewModel } from '../_models/task-view-model';
 
 @Component({
   selector: 'app-task-list',
@@ -9,7 +9,7 @@ import { Task } from '../_models/task';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks : Task[] = [];
+  tasks : TaskViewModel[] = [];
   constructor 
   (
     private router : Router

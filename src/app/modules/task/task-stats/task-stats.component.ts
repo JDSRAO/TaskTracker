@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Task } from '../_models/task';
+import { TaskViewModel } from '../_models/task-view-model';
 
 @Component({
   selector: 'app-task-stats',
@@ -9,7 +9,7 @@ import { Task } from '../_models/task';
 export class TaskStatsComponent implements OnInit {
 
   @Input()
-  tasks : Task[];
+  tasks : TaskViewModel[];
   closedTasksCount : number = 0;
   constructor() { }
 

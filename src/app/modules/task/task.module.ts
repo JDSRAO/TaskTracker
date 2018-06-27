@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { UtilsModule } from '../utils/utils.module';
@@ -23,7 +24,9 @@ const components = [
     RouterModule,
     HttpClientModule,
     MaterialDesignModule,
-    UtilsModule
+    UtilsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [...components],
   exports :[

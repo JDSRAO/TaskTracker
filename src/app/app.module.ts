@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Routes, RouterModule } from "@angular/router";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* App module Imports */
 import { MaterialDesignModule } from './modules/material-design/material-design.module';
@@ -20,12 +21,14 @@ import { HttpCallInterceptor } from './interceptors/http-call-interceptor';
     AppComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule,
     MaterialDesignModule,
     RoutingModule
-  ],
+  ],  
   providers: [
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpCallInterceptor, multi: true }
