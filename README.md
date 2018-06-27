@@ -1,8 +1,6 @@
 # Task Tracker
 This is repository contains a task tracker application through which we can track time taken to complete tasks.
-
-## Angular 5 application with CRUD operations and authentication based on JSON Web Tokens
--- 
+This application is build using Angular 5 and authentication is based on JSON Web Tokens
 
 ### Features 
 * Task Operations
