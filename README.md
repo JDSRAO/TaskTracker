@@ -1,6 +1,19 @@
 # Task Tracker
 This is repository contains a task tracker application through which we can track time taken to complete tasks.
 
+## Angular 5 application with CRUD operations and authentication based on JSON Web Tokens
+-- 
+
+### Features 
+* Task Operations
+  * Add
+  * Edit
+  * Delete
+  * Listing
+* Authentication
+* Responsive application with Material Design and bootstrap
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
