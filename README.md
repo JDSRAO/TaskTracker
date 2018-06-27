@@ -1,6 +1,5 @@
-# TaskTracker
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+# Task Tracker
+This is repository contains a task tracker application through which we can track time taken to complete tasks.
 
 ## Development server
 
