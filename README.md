@@ -1,6 +1,16 @@
-# TaskTracker
+# Task Tracker
+This is repository contains a task tracker application through which we can track time taken to complete tasks.
+This application is build using Angular 5 and authentication is based on JSON Web Tokens
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+### Features 
+* Task Operations
+  * Add
+  * Edit
+  * Delete
+  * Listing
+* Authentication
+* Responsive application with Material Design and bootstrap
+
 
 ## Development server
 
