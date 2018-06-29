@@ -6,19 +6,19 @@ import { Routes, RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* App module Imports */
-import { MaterialDesignModule } from './modules/material-design/material-design.module';
-import { RoutingModule } from './modules/routing/routing.module';
+import { MaterialDesignModule } from './modules/material-design/public-apis';
+import { RoutingModule } from './modules/routing/public-apis';
 
 /* App Component Imports */
 import { AppComponent } from './app.component';
 
-/* App Sevice Imports */
-import { AuthService  } from "./services/auth.service";
-import { HttpCallInterceptor } from './interceptors/http-call-interceptor';
+/* App Imports */
+import { AuthService, HttpCallInterceptor, HttpListenerService, TrimTextPipe  } from "./index";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TrimTextPipe
   ],
   imports: [
     ReactiveFormsModule,
@@ -31,6 +31,7 @@ import { HttpCallInterceptor } from './interceptors/http-call-interceptor';
   ],  
   providers: [
     AuthService,
+    HttpListenerService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpCallInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

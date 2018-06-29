@@ -4,12 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { TaskModule } from '../task/task.module';
-import { TaskManagementIndexComponent } from "../task/task-management-index/task-management-index.component";
-import { TaskAddComponent } from "../task/task-add/task-add.component";
-import { TaskListComponent } from '../Task/task-list/task-list.component';
-
-
+import { TaskModule, TaskListComponent, TaskManagementIndexComponent, TaskAddComponent } from '../task/public-apis';
 
 const taskRoutes : Routes = 
 [
@@ -33,8 +28,6 @@ const routes : Routes =
     RouterModule.forRoot(routes,{onSameUrlNavigation:  "reload", useHash:  true}),
   ],
   declarations: [
-    TaskManagementIndexComponent
-    , TaskAddComponent
   ],
   exports :[  ]
 })
