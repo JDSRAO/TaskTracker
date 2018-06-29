@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TaskViewModel } from '../_models/task-view-model';
+import { TaskViewModel } from '../../models/task-view-model';
 
 @Component({
   selector: 'app-task-stats',

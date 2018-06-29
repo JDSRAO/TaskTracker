@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { UtilsModule } from '../utils/public-apis';
 
-import  {TaskManagementIndexComponent, TaskStatsComponent, TaskListComponent, TaskAddComponent} from './index';
+import  {TaskManagementIndexComponent, TaskStatsComponent, TaskListComponent, TaskAddComponent, TaskMgmtService} from './index';
 
 const components = [
     TaskManagementIndexComponent
@@ -28,6 +28,9 @@ const components = [
   declarations: [...components],
   exports :[
     ...components
+  ],
+  providers :[
+    TaskMgmtService
   ]
 })
 export class TaskModule { }

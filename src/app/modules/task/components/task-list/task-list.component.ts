@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  } from "@angular/router";
-import { TaskViewModel } from '../_models/task-view-model';
+import { TaskViewModel } from '../../models/task-view-model';
 
 @Component({
   selector: 'app-task-list',
