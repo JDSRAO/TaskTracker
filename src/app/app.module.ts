@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* App module Imports */
 import { MaterialDesignModule } from './modules/material-design/public-apis';
 import { RoutingModule } from './modules/routing/public-apis';
+import { UtilsModule, NavBarComponent } from './modules/utils/public-apis';
 
 /* App Component Imports */
 import { AppComponent } from './app.component';
@@ -27,7 +28,8 @@ import { AuthService, HttpCallInterceptor, HttpListenerService, TrimTextPipe  } 
     HttpClientModule,
     RouterModule,
     MaterialDesignModule,
-    RoutingModule
+    RoutingModule,
+    UtilsModule
   ],  
   providers: [
     AuthService,
