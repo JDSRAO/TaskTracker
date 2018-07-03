@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AppSettings } from '../../../index';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TaskMgmtService {
 
   constructor(private http : HttpClient) { }
+
+  baseApiName : string = "taskMgmt";
 
   addTask() : Observable<any>
   {
@@ -17,7 +18,7 @@ export class TaskMgmtService {
 
   getTasks() : Observable<any>
   {
-    let url = '';
+    let url : string = `${AppSettings.ApiBaseUrl}/${this.baseApiName}`;
     return this.http.get(url)
   }
 

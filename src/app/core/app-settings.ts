@@ -1,3 +1,4 @@
-export class AppSettings {
-    public static ApiBaseUrl : string = "";
+export class AppSettings 
+{
+    public static ApiBaseUrl : string = "http://localhost:5400";
 }

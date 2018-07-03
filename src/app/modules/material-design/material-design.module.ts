@@ -23,6 +23,7 @@ import {
   , MatMenuModule
   , MatSidenavModule
   , MatSlideToggleModule
+  , MatPaginatorModule 
 } from '@angular/material';
 
 
@@ -47,7 +48,8 @@ const modules = [
   MatListModule,
   MatMenuModule,
   MatSidenavModule,
-  MatSlideToggleModule 
+  MatSlideToggleModule,
+  MatPaginatorModule 
 ];
 
 @NgModule({

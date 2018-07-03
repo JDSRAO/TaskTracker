@@ -6,3 +6,6 @@ export * from './components/task-list/task-list.component';
 
 /* Services */
 export * from './services/task-mgmt.service';
+
+/* Models */
+export * from './models/task-view-model';
