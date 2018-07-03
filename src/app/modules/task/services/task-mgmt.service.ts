@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { AppSettings } from '../../../index';
+import { AppSettings,  } from '../../../index';
+import { TaskViewModel } from '..';
 
 @Injectable()
 export class TaskMgmtService {
@@ -10,10 +11,11 @@ export class TaskMgmtService {
 
   baseApiName : string = "taskMgmt";
 
-  addTask() : Observable<any>
+  addTask(task : TaskViewModel) : Observable<any>
   {
-    let url = '';
-    return this.http.post<any>(url, {});
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/add`;
+    let body = {};
+    return this.http.post<any>(url, body);
   }
 
   getTasks() : Observable<any>
