@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 
-import { MessageService } from './services/message.service';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MessageService, NavBarComponent, TimeAgoPipe } from './index';
 
 const services = [
   MessageService
 ];
 
-const compoennts = [
+const components = [
   NavBarComponent
 ];
 
@@ -18,10 +17,10 @@ const compoennts = [
     CommonModule,
     MaterialDesignModule
   ],
-  declarations: [...compoennts],
+  declarations: [...components, TimeAgoPipe],
   providers :[
     ...services
   ],
-  exports: [ ...compoennts  ]
+  exports: [ ...components, TimeAgoPipe  ]
 })
 export class UtilsModule { }
