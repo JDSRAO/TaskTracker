@@ -30,4 +30,18 @@ export class TaskMgmtService {
     return this.http.put(url, {});
   }
 
+  startTask(id : string) : Observable<any>
+  {
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/start`;
+    let body = { taskId : id};
+    return this.http.post(url, body);
+  }
+
+  pauseTask(id : string) : Observable<any>
+  {
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/pause`;
+    let body = { taskId : id};
+    return this.http.post(url, body);
+  }
+
 }

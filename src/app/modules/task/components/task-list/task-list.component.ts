@@ -14,7 +14,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 export class TaskListComponent implements OnInit {
 
   tasks : TaskViewModel[] = [];
-  displayedColumns: string[] = [ 'title', 'description', 'createdDateTime'];
+  displayedColumns: string[] = [ 'title', 'description', 'createdDateTime', 'time', 'actions'];
 
   dataSource: MatTableDataSource<TaskViewModel>;
 
@@ -40,11 +40,44 @@ export class TaskListComponent implements OnInit {
     }
   }
 
-  ngOnInit() 
+  startTask(taskId : string){
+    this.taskService.startTask(taskId).subscribe
+    (
+      success => {
+        this.getTasks();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  pauseTask(taskId : string){
+    this.taskService.pauseTask(taskId).subscribe
+    (
+      success => {
+        this.getTasks();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  goToEditPage(taskId : string){
+    
+  }
+
+  deleteTask(taskId : string){
+    
+  }
+
+  closeTask(taskId : string){
+    
+  }
+
+  getTasks()
   {
-    this.dataSource = new MatTableDataSource(this.tasks);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
     this.taskService.getTasks().subscribe
     (
       success => 
@@ -57,6 +90,14 @@ export class TaskListComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  ngOnInit() 
+  {
+    this.dataSource = new MatTableDataSource(this.tasks);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.getTasks();
   }
 
 }

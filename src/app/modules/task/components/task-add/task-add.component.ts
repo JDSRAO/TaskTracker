@@ -54,7 +54,6 @@ export class TaskAddComponent implements OnInit {
     ({
       title : [taskViewmodel.title, Validators.required],
       description : [taskViewmodel.description, Validators.required],
-      status : [taskViewmodel.status, Validators.required],
       targetDate : [taskViewmodel.targetDate, Validators.required],
     });   
     return form;
