@@ -14,7 +14,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 export class TaskListComponent implements OnInit {
 
   tasks : TaskViewModel[] = [];
-  displayedColumns: string[] = ['description', 'taskId', 'createdDateTime'];
+  displayedColumns: string[] = [ 'title', 'description', 'createdDateTime'];
 
   dataSource: MatTableDataSource<TaskViewModel>;
 

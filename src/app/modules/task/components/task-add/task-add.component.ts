@@ -16,6 +16,7 @@ export class TaskAddComponent implements OnInit {
   public addTaskForm : FormGroup;
   public taskStatuses : string[];
   targetDateConfig : any = { min : new Date()};
+  addingInProgress : boolean = false;
 
   constructor
   (
@@ -31,9 +32,11 @@ export class TaskAddComponent implements OnInit {
   addTask()
   {
     let taskToAdd = this.addTaskForm.value as TaskViewModel;
-    this.taskService.addTask(new TaskViewModel()).subscribe
+    this.addingInProgress = true;
+    this.taskService.addTask(taskToAdd).subscribe
     (
       success => {
+        this.addingInProgress = false;
         this.messageService.msg('Added successfully');
         this.addTaskForm.reset();
         this.router.navigate(['']);

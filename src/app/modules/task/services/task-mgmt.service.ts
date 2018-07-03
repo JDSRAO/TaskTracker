@@ -14,7 +14,7 @@ export class TaskMgmtService {
   addTask(task : TaskViewModel) : Observable<any>
   {
     let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/add`;
-    let body = {};
+    let body = task;
     return this.http.post<any>(url, body);
   }
 

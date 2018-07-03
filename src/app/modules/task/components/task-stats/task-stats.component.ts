@@ -14,6 +14,9 @@ export class TaskStatsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.tasks.forEach(element => {
+      //if(element.status == 'closed')
+    });
   }
 
 }
