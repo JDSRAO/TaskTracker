@@ -59,4 +59,10 @@ export class TaskMgmtService {
     return this.http.post(url, body);
   }
 
+  getStats() : Observable<any>
+  {
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/stats`;
+    return this.http.get(url);
+  }
+
 }

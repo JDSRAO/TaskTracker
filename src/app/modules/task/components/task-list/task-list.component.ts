@@ -67,7 +67,7 @@ export class TaskListComponent implements OnInit {
   }
 
   goToEditPage(taskId : string){
-    
+    this.router.navigate(['task/add']);
   }
 
   deleteTask(taskId : string){
@@ -112,7 +112,8 @@ export class TaskListComponent implements OnInit {
     
   }
 
-  refreshTasks(){
+  refreshTasks() {
+    
     this.getTasks();
   }
 
