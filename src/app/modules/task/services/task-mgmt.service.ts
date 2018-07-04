@@ -24,10 +24,11 @@ export class TaskMgmtService {
     return this.http.get(url)
   }
 
-  getTask(id : number) : Observable<any>
+  getTask(id : string) : Observable<any>
   {
-    let url = '';
-    return this.http.put(url, {});
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/task`;
+    let body = { taskId : id};
+    return this.http.post(url, body);
   }
 
   startTask(id : string) : Observable<any>
@@ -40,6 +41,20 @@ export class TaskMgmtService {
   pauseTask(id : string) : Observable<any>
   {
     let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/pause`;
+    let body = { taskId : id};
+    return this.http.post(url, body);
+  }
+
+  closeTask(id : string) : Observable<any>
+  {
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/close`;
+    let body = { taskId : id};
+    return this.http.post(url, body);
+  }
+
+  deleteTask(id : string) : Observable<any>
+  {
+    let url = `${AppSettings.ApiBaseUrl}/${this.baseApiName}/delete`;
     let body = { taskId : id};
     return this.http.post(url, body);
   }

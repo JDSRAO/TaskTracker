@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { UtilsModule } from '../utils/public-apis';
 
-import  {TaskManagementIndexComponent, TaskStatsComponent, TaskListComponent, TaskAddComponent, TaskMgmtService} from './index';
+import  {TaskManagementIndexComponent, TaskStatsComponent, TaskListComponent, TaskAddComponent, TaskMgmtService, ValidateTaskExpiryDirective} from './index';
 
 const components = [
     TaskManagementIndexComponent
@@ -15,6 +15,11 @@ const components = [
   , TaskListComponent
   , TaskAddComponent
 ]
+
+const directives =[
+  ValidateTaskExpiryDirective
+];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,9 +30,10 @@ const components = [
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [...components],
+  declarations: [...components, ...directives],
   exports :[
-    ...components
+    ...components,
+    ...directives
   ],
   providers :[
     TaskMgmtService

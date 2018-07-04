@@ -5,13 +5,16 @@
         <app-task-stats [tasks]="tasks"></app-task-stats>
       </span>
       <span>
+        <button mat-icon-button matTooltip="Refresh" [matTooltipPosition]="'above'">
+          <mat-icon aria-label="Refresh" (click)="refreshTasks()">refresh</mat-icon>
+        </button>
         <button mat-icon-button matTooltip="Add" [matTooltipPosition]="'above'">
           <mat-icon aria-label="Add" (click)="goToAddPage()">add</mat-icon>
         </button>
       </span>
     </div>
     <mat-tab-group>
-      <mat-tab label="Tab 1">
+      <mat-tab label="In Progress">
         <div class="demo-tab-content">
           <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -85,7 +88,7 @@
 
         </div>
       </mat-tab>
-      <mat-tab label="Tab 1">
+      <mat-tab label="Completed">
         <div class="demo-tab-content">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
           Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.

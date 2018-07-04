@@ -69,11 +69,28 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(taskId : string){
-    
+    this.taskService.deleteTask(taskId).subscribe
+    (
+      success => {
+        this.getTasks();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   closeTask(taskId : string){
-    
+    this.taskService.closeTask(taskId).subscribe
+    (
+      success => {
+        this.getTasks();
+      }
+    );
+  }
+
+  refreshTasks(){
+    this.getTasks();
   }
 
   getTasks()
@@ -84,6 +101,9 @@ export class TaskListComponent implements OnInit {
       {
         this.tasks = success.data;
         this.dataSource = new MatTableDataSource(this.tasks);
+        this.dataSource = new MatTableDataSource(this.tasks);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
       err =>
       {
@@ -94,9 +114,6 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit() 
   {
-    this.dataSource = new MatTableDataSource(this.tasks);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
     this.getTasks();
   }
 

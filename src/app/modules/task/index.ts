@@ -9,3 +9,6 @@ export * from './services/task-mgmt.service';
 
 /* Models */
 export * from './models/task-view-model';
+
+/* Directives */
+export * from './directives/validate-task-expiry.directive';
