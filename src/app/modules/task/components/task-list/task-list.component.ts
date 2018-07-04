@@ -4,6 +4,7 @@ import { TaskViewModel } from '../../index';
 
 import { TaskMgmtService } from '../../services/task-mgmt.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MessageService } from '../../../utils/public-apis';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class TaskListComponent implements OnInit {
   (
     private router : Router
     , private taskService : TaskMgmtService
+    , private messageService : MessageService
   ) { }
 
   goToAddPage()
@@ -69,24 +71,45 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(taskId : string){
-    this.taskService.deleteTask(taskId).subscribe
+    let dialog = this.messageService.confirmation("Are you sure you want to delete task?").subscribe
     (
-      success => {
-        this.getTasks();
+      result => {
+        this.taskService.deleteTask(taskId).subscribe
+        (
+          success => {
+            this.getTasks();
+          },
+          err => {
+            console.log(err);
+          }
+        );
       },
-      err => {
-        console.log(err);
+      cancelled => {
+        //this.messageService.msg("Cancelled");
       }
     );
+    
   }
 
   closeTask(taskId : string){
-    this.taskService.closeTask(taskId).subscribe
+    let dialog = this.messageService.confirmation("Are you sure you want to close task?").subscribe
     (
-      success => {
-        this.getTasks();
+      result => {
+        this.taskService.closeTask(taskId).subscribe
+        (
+          success => {
+            this.getTasks();
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      },
+      cancelled => {
+        //this.messageService.msg("Cancelled");
       }
     );
+    
   }
 
   refreshTasks(){
