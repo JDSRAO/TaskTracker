@@ -22,14 +22,14 @@ export class MessageService {
     this.sb.open(message);
   }
 
-  confirmation(message : string) 
+  confirmation(title : string, message : string) 
   {
     const dialogRef = this.dialog.open
     (
       ConfirmationComponent, 
       {
         width: '350px',
-        data: { 'message' : message }
+        data: { 'message' : message, 'title' : title}
       }
     );
 

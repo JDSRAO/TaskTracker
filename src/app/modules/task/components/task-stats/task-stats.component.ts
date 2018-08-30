@@ -11,7 +11,7 @@ export class TaskStatsComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.tasks.forEach(element => {
-      console.log(element);
+      //console.log(element);
     });
   }
   @Input()
@@ -24,7 +24,7 @@ export class TaskStatsComponent implements OnInit, DoCheck {
     this.taskService.getStats().subscribe
     (
       success => {
-        console.log(success.data);
+        //console.log(success.data);
         this.closedTasksCount = success.data.closed;
       }
     );

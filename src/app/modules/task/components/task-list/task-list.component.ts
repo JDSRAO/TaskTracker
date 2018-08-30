@@ -71,7 +71,8 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(taskId : string){
-    let dialog = this.messageService.confirmation("Are you sure you want to delete task?").subscribe
+    let message = "Are you sure you want to delete?";
+    let dialog = this.messageService.confirmation("",message).subscribe
     (
       result => {
         this.taskService.deleteTask(taskId).subscribe
@@ -92,7 +93,7 @@ export class TaskListComponent implements OnInit {
   }
 
   closeTask(taskId : string){
-    let dialog = this.messageService.confirmation("Are you sure you want to close task?").subscribe
+    let dialog = this.messageService.confirmation("", "Are you sure you want to close task?").subscribe
     (
       result => {
         this.taskService.closeTask(taskId).subscribe

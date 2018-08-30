@@ -8,3 +8,6 @@ export * from './components/confirmation/confirmation.component';
 /* Pipes */
 export * from './pipes/time-ago.pipe';
 export * from './pipes/time-duration.pipe';
+
+/* Models */
+export * from './models/confirmationViewMode';
