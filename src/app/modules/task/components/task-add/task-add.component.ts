@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { MessageService } from '../../../utils/public-apis';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { TaskViewModel } from '../../index';
 import { TaskMgmtService } from '../../services/task-mgmt.service';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-task-add',
@@ -17,6 +18,7 @@ export class TaskAddComponent implements OnInit {
   public taskStatuses : string[];
   targetDateConfig : any = { min : new Date()};
   addingInProgress : boolean = false;
+  isAddForm : boolean = true;
 
   constructor
   (
@@ -24,6 +26,7 @@ export class TaskAddComponent implements OnInit {
     , private router : Router
     , private fb : FormBuilder
     , private taskService : TaskMgmtService
+    , private currentUrl : ActivatedRoute
   ) 
   {
     this.addTaskForm = this.generateForm(new TaskViewModel()); 
@@ -48,19 +51,62 @@ export class TaskAddComponent implements OnInit {
     
   }
 
+  updateTask()
+  {
+    let taskData = this.addTaskForm.value;
+    this.taskService.updateTask(taskData).subscribe
+    (
+      success => {
+        this.messageService.msg('Updated successfully');
+        this.addTaskForm.reset();
+        this.router.navigate(['']);
+      }
+      , error => {
+        console.log(error);
+      }
+    );
+  }
+
   generateForm(taskViewmodel : TaskViewModel) : FormGroup
   {
     let form = this.fb.group
     ({
       title : [taskViewmodel.title, Validators.required],
       description : [taskViewmodel.description, Validators.required],
-      targetDate : [taskViewmodel.targetDate, Validators.required],
+      targetDate : [ new Date(taskViewmodel.targetDate), Validators.required],
     });   
     return form;
   }
 
+  getTaskData(taskId) {
+    this.taskService.getTask(taskId).subscribe
+      (
+        success => 
+        {
+          let details = success.data;
+          this.addTaskForm = this.generateForm(details as TaskViewModel);
+        },
+        error => 
+        {
+          console.log(error);
+        }
+      );
+    
+  }
   
-  ngOnInit() {
+  ngOnInit() 
+  {
+    let taskId = this.currentUrl.snapshot.paramMap.get('id');  
+    if(!isUndefined(taskId))
+    {
+      this.isAddForm = false;
+      this.getTaskData(taskId);
+    }
+    else 
+    {
+      this.generateForm(new TaskViewModel());
+    }
+    
   }
 
 }

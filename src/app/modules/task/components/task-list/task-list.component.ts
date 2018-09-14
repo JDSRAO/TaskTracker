@@ -67,7 +67,8 @@ export class TaskListComponent implements OnInit {
   }
 
   goToEditPage(taskId : string){
-    this.router.navigate(['task/add']);
+    const url = "task/edit/" + taskId;
+    this.router.navigate([url]);
   }
 
   deleteTask(taskId : string){

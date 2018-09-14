@@ -1,6 +1,6 @@
 export class TaskViewModel
 {
-    public id : number;
+    public taskId : number;
     public title : string;
     public description : string;
     public createdAt : Date;

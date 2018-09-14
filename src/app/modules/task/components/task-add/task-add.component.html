@@ -43,8 +43,9 @@
                     </div>
                   </div>
 
-                  <button mat-raised-button type="submit" [disabled]="(addTaskForm.status == 'INVALID' ? true : false) || addingInProgress">Add</button>
-                  
+                  <button mat-raised-button type="button" (click)="addTask()" [disabled]="(addTaskForm.status == 'INVALID' ? true : false) || addingInProgress" *ngIf="isAddForm">Add</button>
+                  <button mat-raised-button type="button" (click)="updateTask()" [disabled]="(addTaskForm.status == 'INVALID' ? true : false) || addingInProgress" *ngIf="!isAddForm">Update</button>
+                  {{this.isAddForm}}
                 </form>
                 
               </mat-card-content>
